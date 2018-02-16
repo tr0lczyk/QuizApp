@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
     * */
     public int questionThree() {
         EditText shipNameCorrect = findViewById(R.id.three_good_answer);
-        String threeGoodAnswer = shipNameCorrect.getText().toString().toLowerCase();
+        String threeGoodAnswer = shipNameCorrect.getText().toString().trim();
         String falcon = getText(R.string.MilFal).toString();
-        if (threeGoodAnswer.equals(falcon)) {
+        if (threeGoodAnswer.equalsIgnoreCase(falcon)) {
             return 1;
         } else {
             return 0;
