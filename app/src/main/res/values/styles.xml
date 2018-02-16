@@ -9,7 +9,7 @@
     </style>
 
     <style name="RadioGroup" parent="AppTheme">
-        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_width">@dimen/zero</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:orientation">vertical</item>
     </style>
@@ -37,6 +37,7 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_gravity">center_horizontal</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:contentDescription">@string/akbar</item>
     </style>
 
     <style name="QuestionLayoutStyle" parent="AppTheme">
@@ -128,6 +129,7 @@
         <item name="android:layout_alignParentTop">true</item>
         <item name="android:scaleType">centerCrop</item>
         <item name="android:src">@drawable/logo4</item>
+        <item name="android:contentDescription">@string/LogoText</item>
     </style>
 
     <style name="LogoTextView" parent="AppTheme">

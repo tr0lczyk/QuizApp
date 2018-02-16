@@ -2,10 +2,7 @@ package com.example.android.quizapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -26,9 +23,8 @@ public class MainActivity extends AppCompatActivity {
     *
     * */
     public String playerName() {
-        EditText name = (EditText) findViewById(R.id.player_name);
-        String namePlayer = name.getText().toString();
-        return namePlayer;
+        EditText name = findViewById(R.id.player_name);
+        return name.getText().toString();
     }
 
     /*
@@ -37,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
     *
     * */
     public int questionOne() {
-        RadioButton buttonCorrectOne = (RadioButton) findViewById(R.id.one_good_answer);
+        RadioButton buttonCorrectOne = findViewById(R.id.one_good_answer);
         boolean oneGoodAnswer = buttonCorrectOne.isChecked();
         if (oneGoodAnswer) {
             return 1;
@@ -52,15 +48,15 @@ public class MainActivity extends AppCompatActivity {
     *
     * */
     public int questionTwo() {
-        CheckBox checkBoxCorrectATwo = (CheckBox) findViewById(R.id.two_good_answerA);
+        CheckBox checkBoxCorrectATwo = findViewById(R.id.two_good_answerA);
         boolean twoGoodAnswerA = checkBoxCorrectATwo.isChecked();
-        CheckBox checkBoxCorrectBTwo = (CheckBox) findViewById(R.id.two_good_answerB);
+        CheckBox checkBoxCorrectBTwo = findViewById(R.id.two_good_answerB);
         boolean twoGoodAnswerB = checkBoxCorrectBTwo.isChecked();
-        CheckBox checkBoxCorrectCTwo = (CheckBox) findViewById(R.id.two_good_answerC);
+        CheckBox checkBoxCorrectCTwo = findViewById(R.id.two_good_answerC);
         boolean twoGoodAnswerC = checkBoxCorrectCTwo.isChecked();
-        CheckBox checkBoxWrongOne = (CheckBox) findViewById(R.id.bad_checkbox_one);
+        CheckBox checkBoxWrongOne = findViewById(R.id.bad_checkbox_one);
         boolean twoBadAnswerD = checkBoxWrongOne.isChecked();
-        if (twoGoodAnswerA && twoGoodAnswerB && twoGoodAnswerC && twoBadAnswerD == false) {
+        if (twoGoodAnswerA && twoGoodAnswerB && twoGoodAnswerC && !twoBadAnswerD) {
             return 1;
         } else {
             return 0;
@@ -73,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
     *
     * */
     public int questionThree() {
-        EditText shipNameCorrect = (EditText) findViewById(R.id.three_good_answer);
+        EditText shipNameCorrect = findViewById(R.id.three_good_answer);
         String threeGoodAnswer = shipNameCorrect.getText().toString().toLowerCase();
         String falcon = getText(R.string.MilFal).toString();
         if (threeGoodAnswer.equals(falcon)) {
@@ -89,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     *
     * */
     public int questionFour() {
-        RadioButton buttonCorrectFour = (RadioButton) findViewById(R.id.four_good_answer);
+        RadioButton buttonCorrectFour = findViewById(R.id.four_good_answer);
         boolean oneGoodAnswer = buttonCorrectFour.isChecked();
         if (oneGoodAnswer) {
             return 1;
@@ -104,15 +100,15 @@ public class MainActivity extends AppCompatActivity {
     *
     * */
     public int questionFive() {
-        CheckBox checkBoxCorrectAFive = (CheckBox) findViewById(R.id.five_good_answerA);
+        CheckBox checkBoxCorrectAFive = findViewById(R.id.five_good_answerA);
         boolean fiveGoodAnswerA = checkBoxCorrectAFive.isChecked();
-        CheckBox checkBoxCorrectBFive = (CheckBox) findViewById(R.id.five_good_answerB);
+        CheckBox checkBoxCorrectBFive = findViewById(R.id.five_good_answerB);
         boolean fiveGoodAnswerB = checkBoxCorrectBFive.isChecked();
-        CheckBox checkBoxWrongTwo = (CheckBox) findViewById(R.id.bad_checkbox_two);
+        CheckBox checkBoxWrongTwo = findViewById(R.id.bad_checkbox_two);
         boolean fiveBadAnswerC = checkBoxWrongTwo.isChecked();
-        CheckBox checkBoxWrongThree = (CheckBox) findViewById(R.id.bad_checkbox_three);
+        CheckBox checkBoxWrongThree = findViewById(R.id.bad_checkbox_three);
         boolean fiveBadAnswerD = checkBoxWrongThree.isChecked();
-        if (fiveGoodAnswerA == true && fiveGoodAnswerB == true && fiveBadAnswerC == false && fiveBadAnswerD == false) {
+        if (fiveGoodAnswerA && fiveGoodAnswerB && !fiveBadAnswerC && !fiveBadAnswerD) {
             return 1;
         } else {
             return 0;
@@ -138,41 +134,41 @@ public class MainActivity extends AppCompatActivity {
     public void resetQuestions(View view){
 
 //        GOOD ANSWERS
-        RadioButton buttonCorrectOne = (RadioButton) findViewById(R.id.one_good_answer);
+        RadioButton buttonCorrectOne = findViewById(R.id.one_good_answer);
         buttonCorrectOne.setChecked(false);
-        CheckBox checkBoxCorrectATwo = (CheckBox) findViewById(R.id.two_good_answerA);
+        CheckBox checkBoxCorrectATwo = findViewById(R.id.two_good_answerA);
         checkBoxCorrectATwo.setChecked(false);
-        CheckBox checkBoxCorrectBTwo = (CheckBox) findViewById(R.id.two_good_answerB);
+        CheckBox checkBoxCorrectBTwo = findViewById(R.id.two_good_answerB);
         checkBoxCorrectBTwo.setChecked(false);
-        CheckBox checkBoxCorrectCTwo = (CheckBox) findViewById(R.id.two_good_answerC);
+        CheckBox checkBoxCorrectCTwo = findViewById(R.id.two_good_answerC);
         checkBoxCorrectCTwo.setChecked(false);
-        EditText shipNameCorrect = (EditText) findViewById(R.id.three_good_answer);
+        EditText shipNameCorrect = findViewById(R.id.three_good_answer);
         shipNameCorrect.setText("");
-        RadioButton buttonCorrectFour = (RadioButton) findViewById(R.id.four_good_answer);
+        RadioButton buttonCorrectFour = findViewById(R.id.four_good_answer);
         buttonCorrectFour.setChecked(false);
-        CheckBox checkBoxCorrectAFive = (CheckBox) findViewById(R.id.five_good_answerA);
+        CheckBox checkBoxCorrectAFive = findViewById(R.id.five_good_answerA);
         checkBoxCorrectAFive.setChecked(false);
-        CheckBox checkBoxCorrectBFive = (CheckBox) findViewById(R.id.five_good_answerB);
+        CheckBox checkBoxCorrectBFive = findViewById(R.id.five_good_answerB);
         checkBoxCorrectBFive.setChecked(false);
 
 //        WRONG ANSWERS
-        CheckBox checkBoxWrongOne = (CheckBox) findViewById(R.id.bad_checkbox_one);
+        CheckBox checkBoxWrongOne = findViewById(R.id.bad_checkbox_one);
         checkBoxWrongOne.setChecked(false);
-        CheckBox checkBoxWrongTwo = (CheckBox) findViewById(R.id.bad_checkbox_two);
+        CheckBox checkBoxWrongTwo = findViewById(R.id.bad_checkbox_two);
         checkBoxWrongTwo.setChecked(false);
-        CheckBox checkBoxWrongThree = (CheckBox) findViewById(R.id.bad_checkbox_three);
+        CheckBox checkBoxWrongThree = findViewById(R.id.bad_checkbox_three);
         checkBoxWrongThree.setChecked(false);
-        RadioButton checkRadioButtonWrongOne = (RadioButton) findViewById(R.id.wrong_radio_one);
+        RadioButton checkRadioButtonWrongOne = findViewById(R.id.wrong_radio_one);
         checkRadioButtonWrongOne.setChecked(false);
-        RadioButton checkRadioButtonWrongTwo = (RadioButton) findViewById(R.id.wrong_radio_two);
+        RadioButton checkRadioButtonWrongTwo = findViewById(R.id.wrong_radio_two);
         checkRadioButtonWrongTwo.setChecked(false);
-        RadioButton checkRadioButtonWrongThree = (RadioButton) findViewById(R.id.wrong_radio_three);
+        RadioButton checkRadioButtonWrongThree = findViewById(R.id.wrong_radio_three);
         checkRadioButtonWrongThree.setChecked(false);
-        RadioButton checkRadioButtonWrongFour = (RadioButton) findViewById(R.id.wrong_radio_four);
+        RadioButton checkRadioButtonWrongFour = findViewById(R.id.wrong_radio_four);
         checkRadioButtonWrongFour.setChecked(false);
-        RadioButton checkRadioButtonWrongFive = (RadioButton) findViewById(R.id.wrong_radio_five);
+        RadioButton checkRadioButtonWrongFive = findViewById(R.id.wrong_radio_five);
         checkRadioButtonWrongFive.setChecked(false);
-        RadioButton checkRadioButtonWrongSix = (RadioButton) findViewById(R.id.wrong_radio_six);
+        RadioButton checkRadioButtonWrongSix = findViewById(R.id.wrong_radio_six);
         checkRadioButtonWrongSix.setChecked(false);
     }
 
@@ -185,7 +181,6 @@ public class MainActivity extends AppCompatActivity {
         String yourName = getString(R.string.StateName);
         if (playerName().equals("")) {
             Toast.makeText(this, yourName, Toast.LENGTH_LONG).show();
-            return;
         } else {
             displayToast();
         }
@@ -206,7 +201,6 @@ public class MainActivity extends AppCompatActivity {
         String answerFive = getString(R.string.Toast14) + playerName() + getString(R.string.Toast15) + sumOfAnswers + getString(R.string.Toast16);
         if (sumOfAnswers == 0) {
             Toast.makeText(this, answerZero, Toast.LENGTH_LONG).show();
-            return;
         } else if (sumOfAnswers == 1) {
             Toast.makeText(this, answerOne, Toast.LENGTH_LONG).show();
         } else if (sumOfAnswers == 2) {
